@@ -1,0 +1,445 @@
+/* ----------- BASE ----------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rajdhani", sans-serif;
+    background-color: #fff;
+    color: #111;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --morado: #5a189a;
+    --rojo: #d00000;
+    --negro: #000;
+    --gris: #f5f5f5;
+}
+
+/* ----------- HEADER ----------- */
+.header {
+    width: 100%;
+    background-color: #1d1d1d; /* ✅ gris sólido */
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+/* Navegación centrada */
+.nav {
+    display: flex;
+    justify-content: center; /* ✅ centrado horizontal */
+    align-items: center;
+}
+
+/* Lista de enlaces */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cada enlace como rectángulo negro */
+.nav-links a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #000; /* ✅ rectángulo negro */
+    padding: 10px 25px;
+    border: 3px solid #000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    /* 🔹 permite reemplazar con imagen después */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Hover: cambia el color del rectángulo */
+.nav-links a:hover {
+    background-color: var(--rojo);
+    border-color: var(--rojo);
+    transform: translateY(-3px);
+}
+
+
+/* ----------- HERO ----------- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    position: relative;
+    border-bottom: 10px solid var(--negro);
+    overflow: visible; /* 🔹 permite que la imagen se extienda libremente */
+    padding: 0 80px;
+}
+
+/* Texto del hero */
+.hero-content {
+    position: relative;
+    z-index: 1; /* 🔹 texto por debajo de la imagen transparente */
+    border-left: 10px solid var(--negro);
+    padding-left: 40px;
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--morado);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--negro);
+    margin-bottom: 5px;
+}
+
+.hero-content h3 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: var(--rojo);
+    font-weight: 600;
+}
+
+/* ----------- NUEVA FORMA HERO ----------- */
+.hero-shape {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/Mesa\ de\ trabajo\ 1.png');
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: right center;
+    z-index: 5;
+    transition: transform 0.4s ease;
+}
+
+/* 🔹 pseudo-elemento que captura el hover */
+.hero-shape::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+}
+
+/* efecto hover */
+.hero-shape:hover {
+    transform: translateX(-20px);
+}
+
+/* ----------- BLOQUE DE COLOR DETRÁS DE LA IMAGEN ----------- */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15%; /* igual ancho que la imagen */
+    height: 100%;
+    background-color: var(--negro); /* o el color que prefieras */
+    z-index: 1; /* por debajo de la imagen */
+}
+
+/* ----------- SECCIONES ----------- */
+section {
+    padding: 100px 80px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: 5px solid var(--negro);
+    margin-bottom: 30px;
+}
+
+/* ----------- SOBRE MÍ ----------- */
+.about {
+    background-color: var(--negro);
+    border-top: 8px solid var(--blanco);
+    border-bottom: 8px solid var(--blanco);
+    display: flex;
+    justify-content: center;
+    padding: 100px 80px;
+}
+
+/* Contenedor a dos columnas */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Imagen izquierda */
+.about-img img {
+    width: 380px;        /* ajusta el tamaño según tu imagen */
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Texto derecha */
+.about-text {
+    width: 55%;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: 5px solid white;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+/* ----------- SECCIÓN TRABAJOS ----------- */
+.projects {
+  padding: 100px 80px;
+  background-color: #f7f7f7;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--negro);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 80px;
+  border-bottom: 5px solid var(--negro);
+  display: inline-block;
+}
+
+/* Cada bloque de proyecto */
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 100px;
+  gap: 60px;
+}
+
+/* Alternar posiciones */
+.project-left {
+  flex-direction: row;
+}
+
+.project-right {
+  flex-direction: row-reverse;
+}
+
+/* Imagen del proyecto */
+.project-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 40%; /* 🔹 Cuadros más pequeños */
+}
+
+.project-image img {
+  width: 100%;
+  border-radius: 0; /* 🔹 Esquinas rectas */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Información del proyecto */
+.project-info {
+  text-align: left;
+  flex: 1;
+  padding: 20px 40px;
+}
+
+.project-info h3 {
+  font-size: 1.8rem;
+  color: var(--morado);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.project-info p {
+  font-size: 1.1rem;
+  color: var(--negro);
+  line-height: 1.6;
+}
+
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .project {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .project-image img {
+    max-width: 90%;
+  }
+
+  .project-info {
+    margin-top: 20px;
+  }
+}
+
+/* ----------- CONTACTO ----------- */
+.contacto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--negro);
+  color: var(--blanco);
+  padding: 100px 80px;
+  border-top: 10px solid var(--rojo);
+  flex-wrap: wrap;
+}
+
+.contacto-imagen {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacto-imagen img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+.contacto-formulario {
+  flex: 1;
+  padding-left: 60px;
+  max-width: 500px;
+}
+
+.contacto-formulario h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--blanco);
+  margin-bottom: 25px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.campo label {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.campo input,
+.campo textarea {
+  background-color: #1d1d1d;
+  border: none;
+  color: var(--blanco);
+  padding: 12px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Rajdhani", sans-serif;
+  transition: background-color 0.3s, outline 0.3s;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  background-color: #333;
+  outline: 2px solid var(--rojo);
+}
+
+button {
+  background-color: var(--rojo);
+  color: var(--blanco);
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #ff2a2a;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contacto {
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 40px;
+  }
+
+  .contacto-formulario {
+    padding-left: 0;
+    margin-top: 40px;
+  }
+
+  .contacto-imagen img {
+    max-width: 250px;
+  }
+}
+
+/* ----------- FOOTER ----------- */
+.footer {
+    background-color: var(--negro);
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-top: 6px solid var(--rojo);
+}
+
+html {
+    scroll-behavior: smooth; /* 🔹 activa el desplazamiento suave */
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-link:hover .project-image img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
