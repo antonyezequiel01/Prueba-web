@@ -204,6 +204,7 @@ h2 {
 /* Texto derecha */
 .about-text {
     width: 55%;
+    text-align: left;
 }
 
 .about-text h2 {
