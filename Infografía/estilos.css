@@ -124,8 +124,11 @@ body {
   gap: 60px;
 }
 
-.analisis-image {
-  flex: 1;
+.analisis-img {
+    width: 100%;
+    max-width: 350px; /* ajuste recomendado */
+    height: auto;
+    display: block;
 }
 
 .analisis-image img {
@@ -150,6 +153,49 @@ body {
   line-height: 1.6;
 }
 
+.analisis-img-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* antes probablemente estaba en "stretch" */
+    gap: 20px; /* un poco menos de espacio */
+    max-width: 400px; /* controla que no sea gigante */
+}
+
+.analisis-caption {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 6px;
+}
+
+/* Contenedor de tres imágenes */
+.analisis-bloque-img3 {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 80px 0;
+}
+
+/* Caja que contiene la imagen + texto */
+.analisis-img-box {
+  width: 30%;
+  text-align: center;
+}
+
+/* Imagen */
+.analisis-img-box .analisis-img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Texto debajo de la imagen */
+.analisis-img-text {
+  margin-top: 12px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
 /* --- DISEÑO --- */
 .diseno {
   padding: 100px 80px;
@@ -171,10 +217,11 @@ body {
 }
 
 .item img {
-  width: 100%;
-  border: none; /* 🔹 Eliminado el borde negro */
-  cursor: pointer;
-  transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 500px; /* aumenta el tamaño máximo */
+    display: block;
+    margin: 0 auto;   /* centrado */
+    border: none;     /* 2️⃣ quita el delineado negro */
 }
 
 .item:hover img {
@@ -186,15 +233,10 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  background-color: var(--negro);
   color: var(--blanco);
   width: 100%;
   font-size: 1rem;
-  line-height: 1.5;
   padding: 0 20px;
-  transform-origin: bottom; /* 🔹 Cambiado: ahora el efecto sale desde abajo */
-  transform: scaleY(0);
-  transition: transform 0.3s ease-in-out;
 }
 
 .item:hover .descripcion {
@@ -217,7 +259,6 @@ body {
 .modal-img {
   max-width: 85%;
   max-height: 80%;
-  border: 10px solid var(--negro);
   background: var(--blanco);
   transform: scale(0.8);
   opacity: 0;
@@ -398,26 +439,87 @@ body {
 .final-bloque {
   display: flex;
   align-items: center;
-  gap: 30px;                /* antes 50px → más cerca */
-  margin-bottom: 80px;
+  justify-content: center; /* centra el conjunto */
+  gap: 40px;               /* mayor separación entre texto e imagen */
+  max-width: 1100px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
 }
 
-/* El texto ocupará más espacio */
+/* Texto más contenido */
 .final-bloque .analisis-col {
-  flex: 2;                /* antes 1 → ahora más ancho */
+  flex: 1;               /* antes era 2 — demasiado ancho */
+  max-width: 450px;      /* evita que el texto se desparrame */
 }
 
-/* La columna de la imagen ocupa menos */
+/* Imagen más centrada en su área */
 .final-bloque .analisis-img-col-uno {
-  flex: 0.8;                /* antes 1 → más pequeña */
+  flex: 1;               /* antes 0.8 — hacía que quedara muy al borde */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center; /* centra la imagen dentro de su columna */
 }
 
-/* Imagen ajustada */
+/* Tamaño equilibrado de imagen */
 .final-bloque .analisis-img-uno {
-  width: 85%;
-  max-width: 320px;
-  border-radius: 6px;
+  width: 260px;          /* antes 85% hacía la imagen demasiado grande */
+  max-width: 280px;
+  border-radius: 10px;
+}
+
+/* Imagen única en galería más chica */
+.galeria.item-unica img {
+    max-width: 400px;    /* ajusta el tamaño según quieras */
+    width: 100%;          /* escala si la pantalla es más chica */
+    display: block;
+    margin: 0 auto;       /* centra la imagen */
+}
+
+/* ---- Carousel ---- */
+
+.mockup-carousel {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.mockup-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.mockup-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.mockup-slide img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
   object-fit: cover;
+  display: block;
+}
+
+.mockup-btn {
+  background: #00000080;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.mockup-btn:hover {
+  background: #000000c7;
+}
+
+html {
+    scroll-behavior: smooth; /* 🔹 activa el desplazamiento suave */
 }

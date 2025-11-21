@@ -13,6 +13,7 @@
   <header class="header">
     <nav class="nav">
       <ul class="nav-links">
+        <li><a href="../index.html">Inicio</a></li>
         <li><a href="#intro">Introducción</a></li>
         <li><a href="#analisis">Análisis</a></li>
         <li><a href="#diseno">Diseño</a></li>
@@ -51,16 +52,6 @@
 <!-- BLOQUE 1 — texto + 2 imágenes izquierda -->
 <div class="analisis-bloque">
   <div class="analisis-col analisis-img-col">
-
-    <div class="analisis-img-wrap">
-      <img src="../img/casandre.jpg" class="analisis-img">
-      <p class="analisis-caption">Adolphe Jean-Marie Mouron<br>(Cassandre)</p>
-    </div>
-
-    <div class="analisis-img-wrap">
-      <img src="../img/casandre.jpeg" class="analisis-img">
-      <p class="analisis-caption">Mads Berg</p>
-    </div>
 
   </div>
 
@@ -110,7 +101,7 @@
     </div>
 
     <div class="analisis-col analisis-img-uno">
-    <img src="../img/tresjuntos.png" alt="Imagen relacionada" class="analisis-img-grande">
+    <img src="../img/Pantalla7.png" alt="Imagen relacionada" class="analisis-img-grande">
   </div>
 </div>
 
@@ -139,14 +130,58 @@
       editoriales) manteniendo una estética limpia, introspectiva y accesible.
     </p>
 </div>
-<div class="analisis-col analisis-img-uno">
-    <img src="../img/Vozenunciadora.png" alt="Imagen relacionada" class="analisis-img-grande">
-  </div>
-  <div class="analisis-proceso">
-    <h3>Paleta Cromática</h3>
-  </div>
+
+<div class="tabla-contenedor">
+<table class="tabla-arquetipos">
+  <tr>
+    <th>ARQUETIPO PRINCIPAL</th>
+    <th>PROPÓSITO CENTRAL</th>
+    <th>POSSIBLES ESTILOS VIS.</th>
+    <th>TONO DE VOZ</th>
+  </tr>
+
+  <tr>
+    <td>El cuidador</td>
+    <td>Proteger, acompañar, nutrir.</td>
+    <td>Colores suaves, formas simples, estética limpia y luminosa.</td>
+    <td>Tranquilo, onírico.</td>
+  </tr>
+
+  <tr>
+    <th>ARQUETIPO SECUNDARIO</th>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>El mago</td>
+    <td>Transformar la realidad.</td>
+    <td>Diseños envolventes, minimalismo o fantasía, elementos icónicos.</td>
+    <td>Dinámico, metafórico.</td>
+  </tr>
+
+  <tr>
+    <th>ARQUETIPO TERCIARIO</th>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>El hombre común</td>
+    <td>Ser accesible, que la audiencia se sienta identificada, ser auténtico.</td>
+    <td>Lenguaje simple, estética cotidiana, diseño funcional.</td>
+    <td>Amable, cercano.</td>
+  </tr>
+</table>
+</div>
+
   
 <!-- BLOQUE SOLO IMÁGENES (3) -->
+ <div class="analisis-proceso">
+    <h3>Paleta Cromática</h3>
+  </div>
 <div class="analisis-bloque-img3">
   <div class="analisis-img-box">
     <img src="../img/18_PaletaCroNeutral.png" class="analisis-img">
@@ -279,24 +314,82 @@
     </div>
   </div>
 
-  <!-- CONTENEDOR GENERAL -->
+<!-- CONTENEDOR GENERAL -->
 <div class="diseno-dos-imagenes">
-    <!-- Imagen horizontal grande -->
+
+    <!-- Imagen horizontal -->
     <div class="diseno-imagen-con-texto">
-        <img src="../img/menuprincipal.jpg" alt="Vista del diseño web" class="clickable-img">
-        <p class="descripcion-img">Vista general del diseño web.</p>
+        <img src="../img/menuprincipal.jpg" 
+             alt="Vista del diseño web" 
+             class="clickable-img abrir-modal-horizontal">
+        <p class="descripcion-img">Pantallas in-game.</p>
     </div>
 
     <!-- Imagen vertical -->
     <div class="diseno-imagen-con-texto">
-        <img src="../img/instagram.jpg" alt="Perfil de Instagram del proyecto" class="clickable-img vertical">
+        <img src="../img/instagram.jpg" 
+             alt="Perfil de Instagram del proyecto" 
+             class="clickable-img vertical">
         <p class="descripcion-img">Captura del perfil de Instagram del proyecto.</p>
     </div>
+
 </div>
-<!-- Imagen inferior que abre el modal -->
-<div class="diseno-img-inferior">
-    <img src="../img/Abrirafiche.png" class="abrir-modal-especial" alt="Imagen inferior">
-    <p class="diseno-caption">Afiche</p>
+
+<!-- MODAL GLOBAL -->
+<div id="modalHorizontal" class="modal-horizontal">
+    <span class="cerrar-horizontal">&times;</span>
+
+    <div class="modal-horizontal-contenido">
+        <img id="imgHorizontal" src="" alt="">
+    </div>
+
+    <div class="modal-horizontal-controles">
+        <button id="hAnterior">Anterior</button>
+        <button id="hSiguiente">Siguiente</button>
+    </div>
+</div>
+
+<div class="fila-afiche-carrusel">
+
+    <!-- COLUMNA IZQUIERDA: AFICHE -->
+    <div class="columna-izquierda">
+        <div class="diseno-img-inferior">
+            <img src="../img/Abrirafiche.png"
+                 class="abrir-modal-especial"
+                 alt="Afiche del proyecto">
+            <p class="diseno-caption">Afiche</p>
+        </div>
+    </div>
+
+    <!-- COLUMNA CENTRAL: CARRUSEL SIMPLE -->
+    <div class="columna-central">
+        <div class="carrusel-simple">
+            <div class="carrusel-contenedor">
+                <img id="carrusel-img" src="../img/Pantalla16.png" alt="Carrusel simple">
+            </div>
+
+            <div class="carrusel-controles">
+                <button id="carrusel-prev">Anterior</button>
+                <button id="carrusel-next">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- MODAL HORIZONTAL — CARRUSEL -->
+<div id="modalHorizontal" class="modal-h">
+    <span class="cerrar-h">&times;</span>
+
+    <div class="modal-h-contenido">
+        <img id="imgHorizontal" src="" alt="">
+    </div>
+
+    <div class="modal-h-controles">
+        <button id="hAnterior">Anterior</button>
+        <button id="hSiguiente">Siguiente</button>
+    </div>
 </div>
 
 <!-- MODAL ESPECIAL -->
@@ -316,19 +409,6 @@
 </div>
 
 </section>
-
-<!-- MODAL -->
-<div id="modal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-img" src="" alt="Imagen ampliada">
-</div>
-
-
-  <!-- MODAL PARA IMAGEN AMPLIADA -->
-  <div id="modal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-img" src="" alt="Imagen ampliada">
-  </div>
 
 <!-- FOOTER -->
   <footer class="footer">

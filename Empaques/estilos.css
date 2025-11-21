@@ -420,6 +420,20 @@ body {
   border-radius: 6px;
 }
 
+.inter-imagen {
+  overflow: hidden;           /* Para que la imagen no se salga del contenedor al hacer zoom */
+}
+
+.troquel-img {
+  transition: transform 0.35s ease;   /* Transición suave */
+}
+
+/* Efecto hover */
+.troquel-img:hover {
+  transform: scale(1.08);     /* Aumenta un poco el tamaño */
+}
+
+
 .troquel-close,
 .troquel-prev,
 .troquel-next {
@@ -479,4 +493,8 @@ body {
   width: 85%;          /* Imagen grande pero equilibrada */
   border-radius: 6px;
   object-fit: cover;
+}
+
+html {
+    scroll-behavior: smooth; /* 🔹 activa el desplazamiento suave */
 }

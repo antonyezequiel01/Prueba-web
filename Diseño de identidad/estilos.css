@@ -15,15 +15,15 @@ body {
 :root {
   --morado: #5a189a;
   --rojo: #d00000;
-  --negro: #14291a;
-  --gris: #62c97a;
-  --blanco: #62c97a;
+  --negro: #000;
+  --gris: #f5f5f5;
+  --blanco: #fff;
 }
 
 /* ----------- HEADER ----------- */
 .header {
     width: 100%;
-    background-color: #2e5e39; /* ✅ gris sólido */
+    background-color: #1d1d1d; /* ✅ gris sólido */
     padding: 20px 0;
     position: fixed;
     top: 0;
@@ -54,10 +54,10 @@ body {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 1rem;
-    color: #62c97a;
-    background-color: #14291a; /* ✅ rectángulo negro */
+    color: #fff;
+    background-color: #000; /* ✅ rectángulo negro */
     padding: 10px 25px;
-    border: 3px solid #14291a;
+    border: 3px solid #000;
     transition: all 0.3s ease;
     cursor: pointer;
 
@@ -319,7 +319,7 @@ body {
 /* PROCESO */
 
 .analisis-proceso {
-  text-align: center;
+  text-align: left;
   max-width: 900px;
   margin: 0 auto 80px auto;
 }
@@ -698,6 +698,12 @@ body {
     width: 45%;
     cursor: pointer;
     border-radius: 10px;
+    transition: transform 0.25s ease;
+}
+
+/* Efecto hover: agrandar un poquito */
+.diseno-img-inferior img:hover {
+    transform: scale(1.05);
 }
 
 /* -----------------------------
@@ -808,4 +814,292 @@ body {
     cursor: pointer;
     display: block;
     margin: 0 auto;
+}
+
+/* -----------------------------
+   MODAL HORIZONTAL — CARRUSEL
+----------------------------- */
+
+.modal-horizontal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 999999 !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Contenedor de la imagen del modal */
+.modal-horizontal-contenido {
+  width: 90%;
+  max-width: 900px;
+  max-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen dentro del modal */
+.modal-horizontal-contenido img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Controles */
+.modal-horizontal-controles {
+  margin-top: 15px;
+  display: flex;
+  gap: 12px;
+}
+
+.modal-horizontal-controles button {
+  padding: 10px 18px;
+  background: #ffffff33;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botón cerrar */
+.cerrar-horizontal {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* CONTENEDOR DE LAS DOS IMÁGENES */
+.diseno-dos-imagenes {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* Por si en móvil deben bajar */
+}
+
+/* Contenedor individual */
+.diseno-imagen-con-texto {
+  width: 45%;
+  max-width: 450px;
+  text-align: center;
+}
+
+/* Imagen horizontal */
+.diseno-imagen-con-texto img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Imagen vertical (un poco más angosta) */
+.diseno-imagen-con-texto img.vertical {
+  width: 85%;   /* ajusta para que no quede gigante */
+  max-width: 350px;
+}
+
+/* Texto */
+.descripcion-img {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* HOVER SUAVE EN IMÁGENES */
+.diseno-imagen-con-texto img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diseno-imagen-con-texto img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.columna-izquierda {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diseno-img-inferior {
+    width: 100%;
+    text-align: center;
+}
+
+.diseno-img-inferior img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.diseno-img-inferior img:hover {
+    transform: scale(1.03);
+}
+
+.diseno-caption {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.carrusel-simple {
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.carrusel-contenedor {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.carrusel-contenedor img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* Botones del carrusel */
+.carrusel-controles {
+    margin-top: 12px;
+    display: flex;
+    gap: 14px;
+}
+
+.carrusel-controles button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background: #ffffff22;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.carrusel-controles button:hover {
+    background: #ffffff44;
+}
+
+/* Contenedor que alinea AFICHE + CARRUSEL */
+.fila-afiche-carrusel {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* separa ambos */
+    align-items: flex-start; /* IMPORTANTÍSIMO: evita que uno suba o baje */
+    margin-top: 20px;
+}
+
+/* Columna izquierda: afiche */
+.columna-izquierda {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diseno-img-inferior img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.diseno-img-inferior img:hover {
+    transform: scale(1.03);
+}
+
+.diseno-caption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+/* Columna central: carrusel */
+.columna-central {
+    width: 420px;
+    display: flex;
+    justify-content: center;
+}
+
+.carrusel-simple {
+    width: 600px;   /* Aumentá este valor */
+  height: 400px;  /* También podés aumentar este */
+}
+
+.carrusel-contenedor img {
+    width: 100%;    /* Mantiene la imagen ajustada al carrusel */
+  height: 100%;   /* Hace que llene el espacio */
+  object-fit: cover; /* O "contain" si no querés que se corte */
+}
+
+.carrusel-controles {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.carrusel-controles button {
+    padding: 8px 16px;
+    background: #ffffff22;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.carrusel-controles button:hover {
+    background: #ffffff44;
+}
+
+html {
+    scroll-behavior: smooth; /* 🔹 activa el desplazamiento suave */
+}
+
+.tabla-contenedor {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.tabla-arquetipos {
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 1100px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.tabla-arquetipos th,
+.tabla-arquetipos td {
+  border: 1px solid #262626;
+  padding: 20px;
+  height: 80px;       /* ✔ hace la tabla más alta */
+  vertical-align: middle;
+}
+
+.tabla-arquetipos th {
+  background-color: #000000;
+  font-weight: 700;
 }

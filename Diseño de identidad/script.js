@@ -96,3 +96,103 @@ modalEspecial.addEventListener("click", (e) => {
         rotacion = 0;
     }
 });
+
+// --------------------------------------
+// MODAL HORIZONTAL — CARRUSEL NUEVO
+// --------------------------------------
+const modalHorizontal = document.getElementById("modalHorizontal");
+const cerrarHorizontal = document.querySelector(".cerrar-horizontal");
+const horizontalImg = document.getElementById("imgHorizontal");
+
+// Imagen que abre este modal (la horizontal grande)
+const imgHorizontal = document.querySelector(".abrir-modal-horizontal");
+
+// Lista de imágenes reales
+const imagenesHorizontales = [
+    
+    "../img/Pantalla1.png",
+    "../img/Pantalla2.png",
+    "../img/Pantalla3.png",
+    "../img/Pantalla4.png",
+    "../img/Pantalla5.png",
+    "../img/Pantalla6.png",
+    "../img/Pantalla7.png",
+    "../img/Pantalla8.png",
+    "../img/Pantalla9.png",
+    "../img/Pantalla10.png",
+    "../img/Pantalla11.png",
+    "../img/Pantalla12.png",
+    "../img/Pantalla13.png",
+    "../img/Pantalla14.png",
+    "../img/Pantalla15.png",
+];
+
+let indiceH = 0;
+
+// Abrir modal al clic
+imgHorizontal.addEventListener("click", () => {
+    modalHorizontal.style.display = "flex";
+    horizontalImg.src = imagenesHorizontales[indiceH];
+});
+
+// Cerrar con la X
+cerrarHorizontal.addEventListener("click", () => {
+    modalHorizontal.style.display = "none";
+});
+
+// Botón siguiente
+document.getElementById("hSiguiente").addEventListener("click", () => {
+    indiceH = (indiceH + 1) % imagenesHorizontales.length;
+    horizontalImg.src = imagenesHorizontales[indiceH];
+});
+
+// Botón anterior
+document.getElementById("hAnterior").addEventListener("click", () => {
+    indiceH = indiceH === 0 ? imagenesHorizontales.length - 1 : indiceH - 1;
+    horizontalImg.src = imagenesHorizontales[indiceH];
+});
+
+// Cerrar haciendo clic afuera
+modalHorizontal.addEventListener("click", (e) => {
+    if (e.target === modalHorizontal) {
+        modalHorizontal.style.display = "none";
+    }
+});
+
+// CARRUSEL SIMPLE
+const carruselImg = document.getElementById("carrusel-img");
+const btnCarruselPrev = document.getElementById("carrusel-prev");
+const btnCarruselNext = document.getElementById("carrusel-next");
+
+// Lista de imágenes
+const carruselImagenes = [
+    "../img/Pantalla16.png",
+    "../img/Pantalla17.png",
+    "../img/Pantalla18.png",
+    "../img/Pantalla19.png"
+];
+
+let carruselIndex = 0;
+
+// Función para actualizar la imagen
+function actualizarCarrusel() {
+    // Cambiamos la src directamente sin timeout para evitar errores
+    carruselImg.src = carruselImagenes[carruselIndex];
+}
+
+// Botón siguiente
+btnCarruselNext.addEventListener("click", () => {
+    carruselIndex++;
+    if (carruselIndex >= carruselImagenes.length) carruselIndex = 0;
+    actualizarCarrusel();
+});
+
+// Botón anterior
+btnCarruselPrev.addEventListener("click", () => {
+    carruselIndex--;
+    if (carruselIndex < 0) carruselIndex = carruselImagenes.length - 1;
+    actualizarCarrusel();
+});
+
+// Inicializamos carrusel
+actualizarCarrusel();
