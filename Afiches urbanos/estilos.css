@@ -1,4 +1,6 @@
-/* ----------- BASE ----------- */
+/* =========================================
+   RESET
+========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -20,61 +22,56 @@ body {
   --blanco: #fff;
 }
 
-/* ----------- HEADER ----------- */
+/* =========================================
+   HEADER
+========================================= */
+
 .header {
-    width: 100%;
-    background-color: #1d1d1d; /* ✅ gris sólido */
-    padding: 20px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
+  width: 100%;
+  background-color: #1d1d1d;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
 }
 
-/* Navegación centrada */
 .nav {
-    display: flex;
-    justify-content: center; /* ✅ centrado horizontal */
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Lista de enlaces */
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 40px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 40px;
 }
 
-/* Cada enlace como rectángulo negro */
 .nav-links a {
-    display: inline-block;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #000; /* ✅ rectángulo negro */
-    padding: 10px 25px;
-    border: 3px solid #000;
-    transition: all 0.3s ease;
-    cursor: pointer;
-
-    /* 🔹 permite reemplazar con imagen después */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #000;
+  padding: 10px 25px;
+  border: 3px solid #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* Hover: cambia el color del rectángulo */
 .nav-links a:hover {
-    background-color: var(--rojo);
-    border-color: var(--rojo);
-    transform: translateY(-3px);
+  background-color: var(--rojo);
+  border-color: var(--rojo);
+  transform: translateY(-3px);
 }
 
-/* ----------- INTRODUCCIÓN ----------- */
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
+
 .intro-section {
   height: 100vh;
   display: flex;
@@ -89,6 +86,7 @@ body {
   border-left: 10px solid var(--negro);
   padding-left: 40px;
   max-width: 700px;
+  text-align: left;              /* ← pedido */
 }
 
 .intro-content h1 {
@@ -110,47 +108,162 @@ body {
   line-height: 1.6;
 }
 
-/* ----------- ANÁLISIS ----------- */
+/* =========================================
+   ANÁLISIS — SECCIÓN GENERAL
+========================================= */
+
 .analisis {
   background-color: var(--negro);
   color: #fff;
   padding: 120px 80px;
 }
 
-.analisis-container {
+/* --- BLOQUES GENERALES --- */
+
+.analisis-bloque {
   display: flex;
+  gap: 50px;
+  margin-bottom: 80px;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
 }
 
-.analisis-image {
+.analisis-bloque.reverse {
+  flex-direction: row-reverse;
+}
+
+.analisis-col {
   flex: 1;
 }
 
-.analisis-image img {
+/* =========================================
+   BLOQUES CON DOS IMÁGENES
+========================================= */
+
+.analisis-img-col {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.analisis-img-wrap {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.analisis-img {
   width: 100%;
+  border-radius: 6px;
   object-fit: cover;
 }
 
-.analisis-text {
-  flex: 1;
-  text-align: left;
+.analisis-caption {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
-.analisis-text h2 {
-  font-size: 2rem;
-  border-bottom: 5px solid var(--blanco);
-  display: inline-block;
+/* =========================================
+   BLOQUE DE UNA SOLA IMAGEN
+========================================= */
+
+.analisis-img-col-uno {
+  display: flex;
+  justify-content: center;
+}
+
+.analisis-img-wrap-uno {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.analisis-img-uno {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* =========================================
+   PROCESO
+========================================= */
+
+.analisis-proceso {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 80px auto;
+}
+
+.analisis-proceso h3 {
+  font-size: 1.8rem;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 4px solid var(--blanco);
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-.analisis-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+/* =========================================
+   PAISES
+========================================= */
+
+.analisis-paises {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 80px;
 }
 
-/* --- DISEÑO --- */
+.pais-card {
+  text-align: center;
+}
+
+.pais-card .bandera {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   BLOQUE FINAL (AJUSTADO)
+========================================= */
+
+.final-bloque {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centra el conjunto */
+  gap: 40px;               /* mayor separación entre texto e imagen */
+  max-width: 1100px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
+}
+
+/* Texto más contenido */
+.final-bloque .analisis-col {
+  flex: 1;               /* antes era 2 — demasiado ancho */
+  max-width: 450px;      /* evita que el texto se desparrame */
+}
+
+/* Imagen más centrada en su área */
+.final-bloque .analisis-img-col-uno {
+  flex: 1;               /* antes 0.8 — hacía que quedara muy al borde */
+  display: flex;
+  justify-content: center; /* centra la imagen dentro de su columna */
+}
+
+/* Tamaño equilibrado de imagen */
+.final-bloque .analisis-img-uno {
+  width: 260px;          /* antes 85% hacía la imagen demasiado grande */
+  max-width: 280px;
+  border-radius: 10px;
+}
+
+/* =========================================
+   DISEÑO / GALERÍA
+========================================= */
+
 .diseno {
   padding: 100px 80px;
   background-color: var(--gris);
@@ -160,7 +273,7 @@ body {
 .galeria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px; /* 🔹 Más cercanas entre sí */
+  gap: 15px;
   margin-top: 60px;
 }
 
@@ -172,7 +285,7 @@ body {
 
 .item img {
   width: 100%;
-  border: none; /* 🔹 Eliminado el borde negro */
+  border: none;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -181,7 +294,6 @@ body {
   transform: scale(1.03);
 }
 
-/* CAJA DE TEXTO QUE SALE DEL MARCO */
 .descripcion {
   position: absolute;
   left: 0;
@@ -192,7 +304,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   padding: 0 20px;
-  transform-origin: bottom; /* 🔹 Cambiado: ahora el efecto sale desde abajo */
+  transform-origin: bottom;
   transform: scaleY(0);
   transition: transform 0.3s ease-in-out;
 }
@@ -202,7 +314,10 @@ body {
   padding: 15px 20px;
 }
 
-/* --- MODAL --- */
+/* =========================================
+   MODAL
+========================================= */
+
 .modal {
   display: none;
   position: fixed;
@@ -215,9 +330,9 @@ body {
 }
 
 .modal-img {
-  max-width: 85%;
-  max-height: 80%;
-  border: 10px solid var(--negro);
+  max-width: 95%;
+  max-height: 90%;
+  border: 0;
   background: var(--blanco);
   transform: scale(0.8);
   opacity: 0;
@@ -244,7 +359,6 @@ body {
   }
 }
 
-/* Botón cerrar */
 .close {
   position: absolute;
   top: 40px;
@@ -259,8 +373,10 @@ body {
   transform: scale(1.1);
 }
 
+/* =========================================
+   FOOTER
+========================================= */
 
-/* ----------- FOOTER ----------- */
 .footer {
   background-color: var(--negro);
   color: #fff;
@@ -269,155 +385,6 @@ body {
   border-top: 6px solid var(--rojo);
 }
 
-/* ---- NUEVA ESTRUCTURA ANÁLISIS ---- */
-
-.analisis-bloque {
-  display: flex;
-  gap: 50px;
-  margin-bottom: 80px;
-  align-items: center;
-}
-
-.analisis-bloque.reverse {
-  flex-direction: row-reverse;
-}
-
-.analisis-col {
-  flex: 1;
-}
-
-/* Fila de imágenes */
-.analisis-img-col {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-/* Contenedor de cada imagen */
-.analisis-img-wrap {
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Imagen */
-.analisis-img {
-  width: 100%;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-/* Texto bajo la imagen */
-.analisis-caption {
-  margin-top: 8px;
-  text-align: center;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-
-/* PROCESO */
-
-.analisis-proceso {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto 80px auto;
-}
-
-.analisis-proceso h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  border-bottom: 4px solid var(--blanco);
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-/* PAISES */
-
-.analisis-paises {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  margin-bottom: 80px;
-}
-
-.pais-card {
-  text-align: center;
-}
-
-.pais-card .bandera {
-  width: 150px;
-  margin-bottom: 10px;
-}
-
-/* ----- BLOQUE DE UNA SOLA IMAGEN ----- */
-
-.analisis-bloque.una-imagen {
-  display: flex;
-  gap: 50px;
-  margin-bottom: 80px;
-  align-items: center;
-}
-
-/* Si el bloque usa reverse, funciona igual */
-.analisis-bloque.una-imagen.reverse {
-  flex-direction: row-reverse;
-}
-
-/* Columna de imagen única */
-.analisis-img-col-uno {
-  display: flex;
-  justify-content: center;
-}
-
-.analisis-img-wrap-uno {
-  width: 80%;              /* Ajusta tamaño de la imagen */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.analisis-img-uno {
-  width: 100%;
-  border-radius: 6px;
-  object-fit: cover;       /* evita deformaciones */
-}
-
-/* Caption debajo de la imagen */
-.analisis-caption {
-  margin-top: 8px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  text-align: center;
-}
-
-/* ----- BLOQUE 5 (texto + 1 imagen derecha) ----- */
-
-.final-bloque {
-  display: flex;
-  align-items: center;
-  gap: 30px;                /* antes 50px → más cerca */
-  margin-bottom: 80px;
-}
-
-/* El texto ocupará más espacio */
-.final-bloque .analisis-col {
-  flex: 2;                /* antes 1 → ahora más ancho */
-}
-
-/* La columna de la imagen ocupa menos */
-.final-bloque .analisis-img-col-uno {
-  flex: 0.8;                /* antes 1 → más pequeña */
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* Imagen ajustada */
-.final-bloque .analisis-img-uno {
-  width: 85%;
-  max-width: 320px;
-  border-radius: 6px;
-  object-fit: cover;
+html {
+  scroll-behavior: smooth;
 }
